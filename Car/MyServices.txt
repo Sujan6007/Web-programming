@@ -1,0 +1,43 @@
+package com.SpringDemo.DemoProject.Services;
+
+import com.SpringDemo.DemoProject.Car;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+//logic part
+@Service
+
+public class MyServices implements MyServicesInterfaces {
+    List<Car> list = new ArrayList<Car>();
+
+    public MyServices(){
+        this.list.add(new Car(1,"BMW","about BMW"));
+        this.list.add(new Car(2,"Audi","about Audi"));
+
+    }
+
+    @Override
+    public List<Car> getCars() {
+        return list;
+    }
+
+
+    @Override
+    public Car addCars(Car car) {
+        this.list.add(car);
+        return car;
+    }
+
+    @Override
+    public Car getByid(int id) {
+        for (Car car:this.list) {
+            if(car.getId()==id){
+                return car;
+            }
+        }
+        return null;
+    }
+}
+

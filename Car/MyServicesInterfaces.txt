@@ -1,0 +1,11 @@
+package com.SpringDemo.DemoProject.Services;
+
+import com.SpringDemo.DemoProject.Car;
+
+import java.util.List;
+
+public interface MyServicesInterfaces {
+    public List<Car> getCars();
+    public Car addCars(Car car);
+    public Car getByid(int id);
+}

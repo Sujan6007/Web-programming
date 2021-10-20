@@ -1,0 +1,31 @@
+package com.SpringDemo.DemoProject.Controller;
+
+import com.SpringDemo.DemoProject.Car;
+import com.SpringDemo.DemoProject.Services.MyServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+@RestController
+
+public class MyController {
+    @Autowired
+    MyServices myservices;
+    @GetMapping("cars")
+    public List<Car> cars(){
+        return myservices.getCars();
+    }
+
+    @PostMapping("addcars")
+    public Car addCars(@RequestBody Car car){
+        return myservices.addCars(car);
+
+    }
+    @GetMapping("carbyid")
+    public Car carByid(@RequestParam("id") int id){
+        return myservices.getByid(id);
+    }
+
+}
+
